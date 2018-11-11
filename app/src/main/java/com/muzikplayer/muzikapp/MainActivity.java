@@ -15,10 +15,17 @@ public class MainActivity extends AppCompatActivity
     ViewPager viewPager;
     PagerAdapter pagerAdapter;
 
-    @Override
+    public static MediaPlayerHelper mediaPlayerHelper;
+
+
+
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mediaPlayerHelper=new MediaPlayerHelper();
+
 
         tabLayout=findViewById(R.id.main_tablayout);
         tabLayout.addTab(tabLayout.newTab().setText("Albums"));

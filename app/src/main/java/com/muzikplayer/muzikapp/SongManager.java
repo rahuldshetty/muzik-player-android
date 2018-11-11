@@ -83,7 +83,7 @@ class SongHelper{
         metaRetriver.setDataSource(path);
         if(metaRetriver.getEmbeddedPicture()!=null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 8;
+            options.inSampleSize = 2;
             byte[] art = metaRetriver.getEmbeddedPicture();
             song.setSongpic(BitmapFactory.decodeByteArray(art, 0, art.length,options));
         }

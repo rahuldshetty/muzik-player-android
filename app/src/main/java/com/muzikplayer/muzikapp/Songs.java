@@ -2,6 +2,7 @@ package com.muzikplayer.muzikapp;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -124,11 +125,26 @@ public class Songs extends Fragment {
 
             pic=view.findViewById(R.id.songimage);
 
-            Song song=values.get(position);
+            final Song song=values.get(position);
             title.setText(song.getSongtitle());
             artist.setText(song.getSongauthor());
             count.setText(song.getSongcount());
             pic.setImageBitmap(song.getSongpic());
+
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent songInfo=new Intent(mView.getContext(),SongInfo.class);
+                    songInfo.putExtra("SONG_PATH",song.getSongpath());
+                    songInfo.putExtra("SONG_COUNT",song.getSongcount());
+                    songInfo.putExtra("SONG_NAME",song.getSongtitle());
+                    startActivity(songInfo);
+
+
+                }
+            });
+
 
             return view;
         }
